@@ -1,5 +1,5 @@
 *{
-    background-color: 
+    background-color: red;
 }
 
 #intro{
@@ -21,4 +21,25 @@ h5{
     font-size: 36px;
     margin-top: 100px;
     color: 
+}
+
+h1{
+    font-family: 'Fredoka One', cursive;
+    color: yellow;
+}
+
+button{
+    background-color: yellow;
+    font-family: 'Fredoka One', cursive;
+    border-radius: 5px;
+    border: none;
+}
+
+#button{
+    margin: auto;
+    text-align: center;
+}
+
+.show{
+    display: none;
 }

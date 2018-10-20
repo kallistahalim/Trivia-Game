@@ -41,6 +41,7 @@ $('button').on("click", function () {
     $(this).hide();
     startNewGame();
     count = setInterval(timer, 1000);
+    $('.show').show();
 });
 
 function showResults() {
@@ -97,4 +98,4 @@ $("#options").on('click', 'button', function (e) {
     questionNumber++;
 
     startNewGame();
-})
+}) 
