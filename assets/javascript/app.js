@@ -1,12 +1,12 @@
-var totalquestions;
-var total;
-var button;
-var counter = 1;
+var totalquestions = 0;
+var correct = 0;
+var wrong = 0;
+var counter = 10;
 var userGuess;
 var questions = [{
         question: "Which fast food chain has '$1.69' nuggets?",
         options: ['McDonalds', 'Chick-Fil-A', 'Taco Bell', 'Burger King'],
-        answer: 'Burger King'
+        answer: 'Taco Bell'
     },
     {
         question: "Which fast food chain only sells chicken?",
@@ -31,77 +31,70 @@ var questions = [{
     {
         question: "Which fast food chain Kallista does not like the most?",
         options: ['KFC', 'Taco Bell', 'In & Out', 'Burger King'],
-        answer: 'Taco Bells'
+        answer: 'Taco Bell'
     }
 ];
+var questionNumber = 0;
 
 
 $('button').on("click", function () {
     $(this).hide();
-    count = setInterval(timer, 500);
     startNewGame();
-
+    count = setInterval(timer, 1000);
 });
 
-function timer() {
+function showResults() {
     $('#timer').text(counter);
+    $("#correct").html(correct);
+    $("#total").html(totalquestions);
+}
+
+function timer() {
     counter--;
+    $('#timer').text(counter);
     if (counter === 0) {
-        $('#timer').text(counter);
-        $("#total").html(total);
-        $("#totalquestions").html(totalquestions);
-        clearInterval(count);
+        totalquestions++;
+        questionNumber++;
+        startNewGame();
         return;
     }
 }
 
-// var timer = $('#timer').html(count);
-
 function startNewGame() {
-    // userName = '';
-    // userAge = '';
-    // userFavorite = '';
-    correct = 0;
-    wrong = 0;
-    totalquestions = 0;
-    total = 0;
+    counter = 10;
+    showResults();
+    if (questionNumber === questions.length) {
+        clearInterval(count);
+        $("#questions").empty();
+        $("#options").empty();
+    } else {
+        showQuestion();
+    }
 }
 
-startNewGame();
-
 function showQuestion() {
-    var choices = questions[0].options;
-    var buttons = [];
+    var choices = questions[questionNumber].options;
+    $("#questions").text(questions[questionNumber].question);
+    $("#options").empty();
 
-    for (var i = 0; i < question.length; i++); {
+    for (var i = 0; i < choices.length; i++) {
         var options = $("<button>");
         options.text(choices[i]);
-        options.attr('#buttonid'.i);
         $("#options").append(options);
-        timer();
-        }
     }
+}
 
+$("#options").on('click', 'button', function (e) {
+    userGuess = $(this).text();
+    if (userGuess === questions[questionNumber].answer) {
+        correct++;
+        totalquestions++;
 
-    $('#questions').on('load'.function(){
-        showQuestion();
-    });
+    } else {
+        wrong++;
+        totalquestions++;
+    }
+    questionNumber++;
 
-
-
-
-    $("#options").on('click', 'button', function (e) {
-        userGuess = $(this).data('id');
-        questions[i].answer;
-        if (userGuess === questions[i].answer) {
-            correct++;
-            totalquestions++;
-
-        } else {
-            wrong++;
-            totalquestions++;
-        }
-
-        startNewGame();
-    })
-
+    startNewGame();
+})
