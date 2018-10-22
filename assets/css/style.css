@@ -17,10 +17,9 @@ h5{
 
 #head{
     text-align: center;
-    width: 90%;
-    font-size: 36px;
+    font-size: 48px;
     margin-top: 100px;
-    color: 
+    color: yellow;
 }
 
 h1{
@@ -33,13 +32,40 @@ button{
     font-family: 'Fredoka One', cursive;
     border-radius: 5px;
     border: none;
+    text-align: center;
+    padding: 10px 25px 10px 25px;
+    margin: 50px 25px 0px 25px;
+    color: red
 }
 
 #button{
     margin: auto;
     text-align: center;
+    margin-top: 50px;
+    font-size: 36px;
 }
 
 .show{
     display: none;
+    font-size: 28px;
+    font-family: 'Fredoka One', cursive;
+    color: yellow;
+    text-align: center;
+     margin-top: 100px;
+     margin-bottom: 50px;
+}
+
+#options{
+    text-align: center;
+
+}
+
+#questions{
+    font-family: 'Fredoka One', cursive;
+    color: yellow;
+    font-size: 36px;
+}
+
+h2{
+    text-align: center;
 }
